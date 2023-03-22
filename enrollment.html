@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUBODH PREM VIDYA MANDIR</title>
+
+    <script src="https://kit.fontawesome.com/930f573c0a.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+</head>
+<nav>
+
+    <img src="images/spvmlogo.png" alt="">
+
+    <div class="navigation">
+        <ul>
+            <i id="menu-close" class="fas fa-times"></i>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a class="active" href="enrollment.html">Enrollment</a></li>
+            <li><a href="Calendar.html">Calendar</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a  href="#contact">Contact </a></li>
+        </ul>
+        <img id="menu-btn" src="images/menu1.jpg" alt="">
+    </div>
+</nav>
+
+
+
+<!--Home-->
+
+<section id="enrollment-Home">
+    <h2>Enrollment</h2>
+</section>
+
+<section id="alerts">
+    <div class="alert-section">
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+          Addmissions are open.
+        </div>
+    </div>
+</section>
+    
+
+<section id="enrollment-container">
+    <div class="enrollment-text">
+        <h2>Here are the steps for Enrollment</h2>
+        <p>
+        <ol>
+            <li> Talk with your local school district to discuss SPVM as an option for your child.</li>
+            <br>
+            <li>Gather your child's school records, specifically your child's most recent IEP (Individualized Education
+                Program), assessments and reports</li>
+                <br>
+            <li> Call our Admissions department to schedule a tour of SPVM with our Intake Coordinator to view
+                our
+                program and discuss your child's needs and review your child's records.</li>
+                <br>
+            <li>
+                If you, your local school district and our Intake Coordinator feel SPVM may be a good fit for
+                your
+                child, your child is then scheduled for a 2 day visit at SPVM. Your child will experience time
+                with
+                our teachers, clinicians and student population. Informal assessments are completed. After your child's
+                2
+                day visit, our intake team will either make a recommendation for your child to attend SPVM or
+                make a
+                referral to another program that may be more appropriate for your child.
+            </li>
+            <br>
+
+            <li>
+                When your child is eligible to be enrolled into Hope Academy, we will collaborate with you (parents or
+                guardians) and your local school district to design and implement the most appropriate Individualized
+                Education Program for your child.
+            </li>
+        </ol>
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<!--Contact Us-->
+<section id="contact">
+    <div class="contacts">
+        <div>
+            <h2>Contact Us</h2>
+            <p> <a href="https://goo.gl/maps/SZZZMbZNivswpqkJA" target="_blank">Near Petrol-Pump</a> 
+                <br>
+                <a href="https://goo.gl/maps/AZXp2Cy5yWjPv49v6" target="_blank">Gopeshwar chamoli(246401)</a>
+               </p>
+               <p>
+                Phone:70606 22649
+               </p>
+        </div>
+        <div class="pro-links">
+            <div class="icon"> <i class="fab fa-facebook-f"></i></div>
+            <div class="icon"> <i class="fab fa-instagram"></i></div>
+            <div class="icon"> <i class="fab fa-linkedin-in"></i></div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="coopyright">
+        <div class="footerCopyright">
+            <p>Coopyright @2023 all right reserved | This template made by Ravindra Rawat</p>
+        </div>
+        <div class="pro-links">
+            <div class="icon"> <i class="fab fa-facebook-f"></i></div>
+            <div class="icon"> <i class="fab fa-instagram"></i></div>
+            <div class="icon"> <i class="fab fa-linkedin-in"></i></div>
+        </div>
+
+    </div>
+</footer>
+
+<!--script-->
+
+<script>
+     $('#menu-btn').click(function () {
+        $('nav .navigation ul').addClass('active')
+    })
+    $('#menu-close').click(function () {
+        $('nav .navigation ul').removeClass('active')
+    })
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUBODH PREM VIDYA MANDIR</title>
+
+    <script src="https://kit.fontawesome.com/930f573c0a.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="calendar.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+
+</head>
+<nav>
+
+    <img src="images/spvmlogo.png" alt="">
+
+    <div class="navigation">
+        <ul>
+            <i id="menu-close" class="fas fa-times"></i>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="enrollment.html">Enrollment</a></li>
+            <li><a class="active"  href="Calendar.html">Calendar</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a  href="#contact">Contact </a></li>
+        </ul>
+        <img id="menu-btn" src="images/menu1.jpg" alt="">
+    </div>
+</nav>
+
+
+
+<!--Home-->
+
+<section id="about-Home">
+    <h2>school-Calendar</h2>
+
+</section>
+
+
+<section id="calendar">
+</section>
+
+    <div class="alert-section">
+        <div class="alert">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            This is an alert message.
+        </div>
+    </div>
+        
+
+
+
+<section id="contact">
+    <div class="contacts">
+        <div>
+            <h2>Contact Us</h2>
+            <p> <a href="https://goo.gl/maps/SZZZMbZNivswpqkJA" target="_blank">Near Petrol-Pump</a>
+                <br>
+                <a href="https://goo.gl/maps/AZXp2Cy5yWjPv49v6" target="_blank">Gopeshwar chamoli(246401)</a>
+            </p>
+            <p>
+                Phone:70606 22649
+            </p>
+        </div>
+        <div class="pro-links">
+            <div class="icon"> <i class="fab fa-facebook-f"></i></div>
+            <div class="icon"> <i class="fab fa-instagram"></i></div>
+            <div class="icon"> <i class="fab fa-linkedin-in"></i></div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <div class="coopyright">
+        <div class="footerCopyright">
+            <p>Coopyright @2023 all right reserved | This template made by Ravindra Rawat</p>
+        </div>
+        <div class="pro-links">
+            <div class="icon"> <i class="fab fa-facebook-f"></i></div>
+            <div class="icon"> <i class="fab fa-instagram"></i></div>
+            <div class="icon"> <i class="fab fa-linkedin-in"></i></div>
+        </div>
+
+    </div>
+</footer>
+
+<!--script-->
+
+<script>
+    $('#menu-btn').click(function () {
+        $('nav .navigation ul').addClass('active')
+    })
+    $('#menu-close').click(function () {
+        $('nav .navigation ul').removeClass('active')
+    })
+</script>
+  
+<script>const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    let currentDate = new Date();
+    let currentMonth = currentDate.getMonth();
+    let currentYear = currentDate.getFullYear();
+    
+    // Define events for each month
+    const events = [
+      {
+        month: 2, // March
+        year: 2023,
+        data: [
+          { date: 15, title: 'Parent-Teacher Conference' },
+          { date: 25, title: 'Field Trip' }
+        ]
+      },
+      {
+        month: 3, // April
+        year: 2023,
+        data: [
+          { date: 2, title: 'Spring Break Begins' },
+          { date: 8, title: 'Classes Resume' },
+          { date: 22, title: 'No School - Holiday' }
+        ]
+      },
+      // Add more months and events as needed
+    ];
+    
+    function createCalendar(month, year) {
+      let calendarBody = document.querySelector('.calendar-body');
+      let lastDayOfMonth = new Date(year, month + 1, 0).getDate();
+      let firstDayOfWeek = new Date(year, month, 1).getDay();
+      let date = 1;
+      let calendarHTML = '';
+    
+      for (let i = 0; i < 6; i++) {
+        let weekHTML = '<tr>';
+    
+        for (let j = 0; j < 7; j++) {
+          if (i === 0 && j < firstDayOfWeek) {
+            weekHTML += '<td></td>';
+          } else if (date > lastDayOfMonth) {
+            weekHTML += '<td></td>';
+          } else {
+            let eventHTML = '';
+            const event = events.find(e => e.month === month && e.year === year);
+            if (event) {
+              const eventData = event.data.find(d => d.date === date);
+              if (eventData) {
+                eventHTML = `<div class="event">${eventData.title}</div>`;
+              }
+            }
+            weekHTML += `<td>${date}${eventHTML}</td>`;
+            date++;
+          }
+        }
+    
+        weekHTML += '</tr>';
+        calendarHTML += weekHTML;
+        if (date > lastDayOfMonth) break;
+      }
+    
+      calendarBody.innerHTML = calendarHTML;
+      document.querySelector('.month').textContent = `${months[month]} ${year}`;
+    }
+    
+    function prevMonth() {
+      currentMonth--;
+      if (currentMonth < 0) {
+        currentMonth = 11;
+        currentYear--;
+      }
+      createCalendar(currentMonth, currentYear);
+    }
+    
+    function nextMonth() {
+      currentMonth++;
+      if (currentMonth > 11) {
+        currentMonth = 0;
+        currentYear++;
+      }
+      createCalendar(currentMonth, currentYear);
+    }
+    
+    createCalendar(currentMonth, currentYear);
+    </script>
+
+
+</body>
+
+</html>
